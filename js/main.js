@@ -5,7 +5,7 @@ let contatore = 0;
 
 generateNumbers();
 
-setTimeout(checkNumbers, 3000);
+setTimeout(checkNumbers, 30000);
 
 function generateNumbers(){
 
