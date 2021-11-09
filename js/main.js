@@ -5,7 +5,7 @@ let contatore = 0;
 
 generateNumbers();
 
-checkNumbers();
+setTimeout(checkNumbers, 3000);
 
 function generateNumbers(){
 
@@ -23,17 +23,28 @@ function generateNumbers(){
 }
 
 function checkNumbers(){
+    document.querySelector(".number-table").innerHTML = "  "
     
     for (let i = 0; i < numbers.length; i++){
         const num = parseInt(prompt("Inserire i numeri uno per volta"));
         for (let j = 0; j < numbers.length; j++){
-            if(num === numbers[j]){
+            if(num === numbers[j] && !usernums.includes(num)){
                 usernums.push(num);
                 contatore++;
             }
         }
     }
+
+    document.querySelector(".attempts").innerHTML += "Hai indovinato " + contatore + " numeri";
+    
+    document.querySelector(".results").innerHTML += "I numeri indovinati sono: "
+    
+    for (let i = 0; i < usernums.length; i++){
+        document.querySelector(".number-table").innerHTML += usernums[i] + "  ";
+    }
+    
+    console.log(usernums);
+    console.log(contatore);
 }
 
-console.log(usernums);
-console.log(contatore);
+
